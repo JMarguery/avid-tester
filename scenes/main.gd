@@ -34,6 +34,10 @@ enum Modes {CLASSIC,BLANK,SHUFFLE}
 
 @export var titleAnswer:RichTextLabel
 
+@export var bgShader:BgShader
+
+@export var bgShaderPanel:BgShader
+
 var charAppearTic:float=0
 var currentQuestion:Dictionary
 var currentAnswers:Array=[]
@@ -58,6 +62,7 @@ func _ready() -> void:
 	get_question()
 	_on_question_slider_drag_ended(true)
 	_on_cooldown_slider_drag_ended(true)
+	bgShader.setup(cooldownTimer.wait_time/2,cooldownTimer.wait_time/2)
 
 func get_question() -> void:
 	currentQuestion=questionData.get_question()
@@ -145,6 +150,8 @@ func win_routine() -> void:
 	inputText.modulate = Colors["BLUE"]
 	timerQuestion.stop()
 	cooldownTimer.start(0)
+	bgShader.correct_transition()
+	#bgShaderPanel.correct_transition()
 	if questionMode==Modes.CLASSIC:
 		titleAnswer.text = "[center]Correct answer :"
 		titleAnswer.modulate = Colors["GREEN"]
@@ -156,6 +163,8 @@ func lose_routine() -> void:
 	timerProgress.value = 0
 	cooldownTimer.start(0)
 	inputText.text = "[center]"
+	bgShader.wrong_transition()
+	#bgShaderPanel.wrong_transition()
 	for ar in currentAnswers:
 		inputText.text+="["
 		for s in ar:
