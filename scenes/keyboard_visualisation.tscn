@@ -1,0 +1,309 @@
+[gd_scene load_steps=3 format=3 uid="uid://brbww624x37kh"]
+
+[ext_resource type="Theme" uid="uid://4exh50yjc2of" path="res://keyboard.tres" id="1_44kns"]
+[ext_resource type="PackedScene" uid="uid://duk6ma7hk7tip" path="res://scenes/Key/key.tscn" id="2_1eisx"]
+
+[node name="KeyboardVisualisation" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_44kns")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(1400, 380)
+layout_mode = 0
+offset_right = 1400.0
+offset_bottom = 450.0
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Line1" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Line1"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ESC" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Line1/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 50
+
+[node name="Esc" parent="PanelContainer/MarginContainer/VBoxContainer/Line1/HBoxContainer/ESC" instance=ExtResource("2_1eisx")]
+layout_mode = 2
+theme = ExtResource("1_44kns")
+text = "Esc
+
+"
+value = "Escape"
+
+[node name="F1-F4" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Line1/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 35
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Line1/HBoxContainer/F1-F4"]
+layout_mode = 2
+
+[node name="F1" parent="PanelContainer/MarginContainer/VBoxContainer/Line1/HBoxContainer/F1-F4/HBoxContainer" instance=ExtResource("2_1eisx")]
+layout_mode = 2
+theme = ExtResource("1_44kns")
+text = "F1
+
+"
+
+[node name="F2" parent="PanelContainer/MarginContainer/VBoxContainer/Line1/HBoxContainer/F1-F4/HBoxContainer" instance=ExtResource("2_1eisx")]
+layout_mode = 2
+theme = ExtResource("1_44kns")
+text = "F2
+
+"
+
+[node name="F3" parent="PanelContainer/MarginContainer/VBoxContainer/Line1/HBoxContainer/F1-F4/HBoxContainer" instance=ExtResource("2_1eisx")]
+layout_mode = 2
+theme = ExtResource("1_44kns")
+text = "F3
+
+"
+
+[node name="F4" parent="PanelContainer/MarginContainer/VBoxContainer/Line1/HBoxContainer/F1-F4/HBoxContainer" instance=ExtResource("2_1eisx")]
+layout_mode = 2
+theme = ExtResource("1_44kns")
+text = "F4
+
+"
+
+[node name="F5-F8" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Line1/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 35
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Line1/HBoxContainer/F5-F8"]
+layout_mode = 2
+
+[node name="F5" parent="PanelContainer/MarginContainer/VBoxContainer/Line1/HBoxContainer/F5-F8/HBoxContainer" instance=ExtResource("2_1eisx")]
+layout_mode = 2
+theme = ExtResource("1_44kns")
+text = "F5
+
+"
+
+[node name="F6" parent="PanelContainer/MarginContainer/VBoxContainer/Line1/HBoxContainer/F5-F8/HBoxContainer" instance=ExtResource("2_1eisx")]
+layout_mode = 2
+theme = ExtResource("1_44kns")
+text = "F6
+
+"
+
+[node name="F7" parent="PanelContainer/MarginContainer/VBoxContainer/Line1/HBoxContainer/F5-F8/HBoxContainer" instance=ExtResource("2_1eisx")]
+layout_mode = 2
+theme = ExtResource("1_44kns")
+text = "F7
+
+"
+
+[node name="F8" parent="PanelContainer/MarginContainer/VBoxContainer/Line1/HBoxContainer/F5-F8/HBoxContainer" instance=ExtResource("2_1eisx")]
+layout_mode = 2
+theme = ExtResource("1_44kns")
+text = "F8
+
+"
+
+[node name="F9-F12" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Line1/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 35
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Line1/HBoxContainer/F9-F12"]
+layout_mode = 2
+
+[node name="F9" parent="PanelContainer/MarginContainer/VBoxContainer/Line1/HBoxContainer/F9-F12/HBoxContainer" instance=ExtResource("2_1eisx")]
+layout_mode = 2
+theme = ExtResource("1_44kns")
+text = "F9
+
+"
+
+[node name="F10" parent="PanelContainer/MarginContainer/VBoxContainer/Line1/HBoxContainer/F9-F12/HBoxContainer" instance=ExtResource("2_1eisx")]
+layout_mode = 2
+theme = ExtResource("1_44kns")
+text = "F10
+
+"
+
+[node name="F11" parent="PanelContainer/MarginContainer/VBoxContainer/Line1/HBoxContainer/F9-F12/HBoxContainer" instance=ExtResource("2_1eisx")]
+layout_mode = 2
+theme = ExtResource("1_44kns")
+text = "F11
+
+"
+
+[node name="F12" parent="PanelContainer/MarginContainer/VBoxContainer/Line1/HBoxContainer/F9-F12/HBoxContainer" instance=ExtResource("2_1eisx")]
+layout_mode = 2
+theme = ExtResource("1_44kns")
+text = "F12
+
+"
+
+[node name="Print" parent="PanelContainer/MarginContainer/VBoxContainer/Line1/HBoxContainer" instance=ExtResource("2_1eisx")]
+layout_mode = 2
+theme = ExtResource("1_44kns")
+text = "Print
+
+"
+
+[node name="ScrlLck" parent="PanelContainer/MarginContainer/VBoxContainer/Line1/HBoxContainer" instance=ExtResource("2_1eisx")]
+layout_mode = 2
+theme = ExtResource("1_44kns")
+theme_override_font_sizes/font_size = 14
+text = "Scrl
+Lck"
+value = "ScrollLock"
+
+[node name="Pause" parent="PanelContainer/MarginContainer/VBoxContainer/Line1/HBoxContainer" instance=ExtResource("2_1eisx")]
+layout_mode = 2
+theme = ExtResource("1_44kns")
+theme_override_font_sizes/font_size = 14
+text = "Pause
+
+"
+
+[node name="Line2" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Line2"]
+layout_mode = 2
+
+[node name="²-BackSlash" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Line2/HBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Line2/HBoxContainer/²-BackSlash"]
+layout_mode = 2
+
+[node name="Key" parent="PanelContainer/MarginContainer/VBoxContainer/Line2/HBoxContainer/²-BackSlash/HBoxContainer" instance=ExtResource("2_1eisx")]
+layout_mode = 2
+text = "`
+
+"
+value = "QuoteLeft"
+
+[node name="Key2" parent="PanelContainer/MarginContainer/VBoxContainer/Line2/HBoxContainer/²-BackSlash/HBoxContainer" instance=ExtResource("2_1eisx")]
+layout_mode = 2
+text = "1
+
+"
+
+[node name="Key3" parent="PanelContainer/MarginContainer/VBoxContainer/Line2/HBoxContainer/²-BackSlash/HBoxContainer" instance=ExtResource("2_1eisx")]
+layout_mode = 2
+text = "2
+
+"
+
+[node name="Key4" parent="PanelContainer/MarginContainer/VBoxContainer/Line2/HBoxContainer/²-BackSlash/HBoxContainer" instance=ExtResource("2_1eisx")]
+layout_mode = 2
+text = "3
+
+"
+
+[node name="Key5" parent="PanelContainer/MarginContainer/VBoxContainer/Line2/HBoxContainer/²-BackSlash/HBoxContainer" instance=ExtResource("2_1eisx")]
+layout_mode = 2
+text = "4
+
+"
+
+[node name="Key6" parent="PanelContainer/MarginContainer/VBoxContainer/Line2/HBoxContainer/²-BackSlash/HBoxContainer" instance=ExtResource("2_1eisx")]
+layout_mode = 2
+text = "5
+
+"
+
+[node name="Key7" parent="PanelContainer/MarginContainer/VBoxContainer/Line2/HBoxContainer/²-BackSlash/HBoxContainer" instance=ExtResource("2_1eisx")]
+layout_mode = 2
+text = "6
+
+"
+
+[node name="Key8" parent="PanelContainer/MarginContainer/VBoxContainer/Line2/HBoxContainer/²-BackSlash/HBoxContainer" instance=ExtResource("2_1eisx")]
+layout_mode = 2
+text = "7
+
+"
+
+[node name="Key9" parent="PanelContainer/MarginContainer/VBoxContainer/Line2/HBoxContainer/²-BackSlash/HBoxContainer" instance=ExtResource("2_1eisx")]
+layout_mode = 2
+text = "8
+
+"
+
+[node name="Key10" parent="PanelContainer/MarginContainer/VBoxContainer/Line2/HBoxContainer/²-BackSlash/HBoxContainer" instance=ExtResource("2_1eisx")]
+layout_mode = 2
+text = "9
+
+"
+
+[node name="Key11" parent="PanelContainer/MarginContainer/VBoxContainer/Line2/HBoxContainer/²-BackSlash/HBoxContainer" instance=ExtResource("2_1eisx")]
+layout_mode = 2
+text = "0
+
+"
+
+[node name="Key12" parent="PanelContainer/MarginContainer/VBoxContainer/Line2/HBoxContainer/²-BackSlash/HBoxContainer" instance=ExtResource("2_1eisx")]
+layout_mode = 2
+text = "-
+
+"
+value = "Minus"
+
+[node name="Key13" parent="PanelContainer/MarginContainer/VBoxContainer/Line2/HBoxContainer/²-BackSlash/HBoxContainer" instance=ExtResource("2_1eisx")]
+layout_mode = 2
+text = "=
+
+"
+value = "Equal"
+
+[node name="Key14" parent="PanelContainer/MarginContainer/VBoxContainer/Line2/HBoxContainer/²-BackSlash/HBoxContainer" instance=ExtResource("2_1eisx")]
+layout_mode = 2
+text = "←"
+value = "Backspace"
+
+[node name="Key15" parent="PanelContainer/MarginContainer/VBoxContainer/Line2/HBoxContainer/²-BackSlash/HBoxContainer" instance=ExtResource("2_1eisx")]
+layout_mode = 2
+text = "Insert
+
+"
+
+[node name="Key16" parent="PanelContainer/MarginContainer/VBoxContainer/Line2/HBoxContainer/²-BackSlash/HBoxContainer" instance=ExtResource("2_1eisx")]
+layout_mode = 2
+text = "↖"
+value = "Home"
+
+[node name="Key17" parent="PanelContainer/MarginContainer/VBoxContainer/Line2/HBoxContainer/²-BackSlash/HBoxContainer" instance=ExtResource("2_1eisx")]
+layout_mode = 2
+text = "⇞"
+value = "PageUp"
+
+[node name="Key18" parent="PanelContainer/MarginContainer/VBoxContainer/Line2/HBoxContainer/²-BackSlash/HBoxContainer" instance=ExtResource("2_1eisx")]
+layout_mode = 2
+text = "Num
+Lock"
+value = "NumLock"
+
+[node name="Key19" parent="PanelContainer/MarginContainer/VBoxContainer/Line2/HBoxContainer/²-BackSlash/HBoxContainer" instance=ExtResource("2_1eisx")]
+layout_mode = 2
+text = "/"
+value = "/"
+
+[node name="Key20" parent="PanelContainer/MarginContainer/VBoxContainer/Line2/HBoxContainer/²-BackSlash/HBoxContainer" instance=ExtResource("2_1eisx")]
+layout_mode = 2
+
+[node name="Key21" parent="PanelContainer/MarginContainer/VBoxContainer/Line2/HBoxContainer/²-BackSlash/HBoxContainer" instance=ExtResource("2_1eisx")]
+layout_mode = 2

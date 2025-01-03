@@ -1,0 +1,375 @@
+[gd_scene load_steps=12 format=3 uid="uid://c8ybe72d4xlhl"]
+
+[ext_resource type="Shader" path="res://scenes/balatro_swirl.gdshader" id="1_8gvg4"]
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_s3042"]
+[ext_resource type="Texture2D" uid="uid://bb7rpagcrrcu0" path="res://art/bg.png" id="1_ym6ey"]
+[ext_resource type="Theme" uid="uid://coc4hmcx5riu6" path="res://scenes/main_theme.tres" id="2_agd0y"]
+[ext_resource type="PackedScene" uid="uid://cefmsegy8f3ss" path="res://scenes/inputCatcher/input_catcher.tscn" id="5_5rj8n"]
+[ext_resource type="PackedScene" uid="uid://sp06jjhllquc" path="res://scenes/questions_data/questions_data.tscn" id="6_thnfd"]
+[ext_resource type="Texture2D" uid="uid://dgs0jk1o4o7sn" path="res://art/options_icon.png" id="7_1gq21"]
+[ext_resource type="Texture2D" uid="uid://cgqunpqx0kaw2" path="res://art/pause_icon.png" id="8_2q6or"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qf5ws"]
+shader = ExtResource("1_8gvg4")
+shader_parameter/polar_coordinates = true
+shader_parameter/polar_center = Vector2(-0.07, 1.015)
+shader_parameter/polar_zoom = -0.19
+shader_parameter/polar_repeat = 2.465
+shader_parameter/spin_rotation = 0.0
+shader_parameter/spin_speed = 1.0
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/colour_1 = Color(0, 0, 1, 1)
+shader_parameter/colour_2 = Color(0.470588, 0.14902, 0.905882, 1)
+shader_parameter/colour_3 = Color(0.470588, 0.14902, 0.905882, 1)
+shader_parameter/contrast = 2.0
+shader_parameter/spin_amount = 0.36
+shader_parameter/pixel_filter = 700.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eyr61"]
+shader = ExtResource("1_8gvg4")
+shader_parameter/polar_coordinates = false
+shader_parameter/polar_center = Vector2(0.5, 0.5)
+shader_parameter/polar_zoom = 1.0
+shader_parameter/polar_repeat = 1.0
+shader_parameter/spin_rotation = null
+shader_parameter/spin_speed = 1.0
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/colour_1 = Color(0.956863, 1, 0.964706, 0.0431373)
+shader_parameter/colour_2 = Color(0, 1, 0, 0)
+shader_parameter/colour_3 = Color(0, 0, 1, 0)
+shader_parameter/contrast = 2.0
+shader_parameter/spin_amount = 0.36
+shader_parameter/pixel_filter = 700.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fp6e3"]
+
+[node name="Main" type="Node2D" node_paths=PackedStringArray("inputCatcher", "questionData", "questionText", "inputText", "timerQuestion", "cooldownTimer", "timerProgress", "pauseButton", "sliderQuestion", "sliderCD", "QuestionSliderLabel", "CDSliderLabel", "blankText")]
+position = Vector2(960, 540)
+script = ExtResource("1_s3042")
+inputCatcher = NodePath("InputCatcher")
+questionData = NodePath("questions_data")
+questionText = NodePath("Control/MarginContainer/PanelContainer/VBoxContainer/QuestionContainer/TitleContainer/VBoxContainer/MarginContainer/QuestionPanel/QuestionText")
+inputText = NodePath("Control/MarginContainer/PanelContainer/VBoxContainer/TabContainer/Input/InputPanel/VBoxContainer/MarginContainer/PanelContainer/MarginContainer/RichTextLabel")
+timerQuestion = NodePath("QuestionTimer")
+cooldownTimer = NodePath("CoolDownTimer")
+timerProgress = NodePath("TimerProgress")
+pauseButton = NodePath("PauseButton")
+sliderQuestion = NodePath("Sliders/Sliders/QuestionSlider")
+sliderCD = NodePath("Sliders/Sliders/CooldownSlider")
+QuestionSliderLabel = NodePath("Sliders/Textboxes/HBoxContainer/QuestionSliderLabel")
+CDSliderLabel = NodePath("Sliders/Textboxes/HBoxContainer/CDSliderLabel")
+blankText = NodePath("Control/MarginContainer/PanelContainer/VBoxContainer/TabContainer/Blank/BlankPanel/VBoxContainer/MarginContainer2/QuestionPanel/BlankText")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-960, -540)
+texture = ExtResource("1_ym6ey")
+centered = false
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_qf5ws")
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+
+[node name="Control" type="Control" parent="."]
+custom_minimum_size = Vector2(1152, 648)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_agd0y")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -832.0
+offset_top = -468.0
+offset_right = 832.0
+offset_bottom = 484.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_agd0y")
+
+[node name="PanelContainer" type="PanelContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("2_agd0y")
+
+[node name="ColorRect" type="ColorRect" parent="Control/MarginContainer/PanelContainer"]
+material = SubResource("ShaderMaterial_eyr61")
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/PanelContainer"]
+custom_minimum_size = Vector2(1400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="QuestionContainer" type="MarginContainer" parent="Control/MarginContainer/PanelContainer/VBoxContainer"]
+layout_direction = 1
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="TitleContainer" type="PanelContainer" parent="Control/MarginContainer/PanelContainer/VBoxContainer/QuestionContainer"]
+layout_mode = 2
+theme = ExtResource("2_agd0y")
+theme_type_variation = &"TitlePanel"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/PanelContainer/VBoxContainer/QuestionContainer/TitleContainer"]
+layout_mode = 2
+
+[node name="TitleMargin" type="MarginContainer" parent="Control/MarginContainer/PanelContainer/VBoxContainer/QuestionContainer/TitleContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 84.235)
+layout_mode = 2
+theme_override_constants/margin_top = 15
+
+[node name="TextQuestion" type="RichTextLabel" parent="Control/MarginContainer/PanelContainer/VBoxContainer/QuestionContainer/TitleContainer/VBoxContainer/TitleMargin"]
+clip_contents = false
+custom_minimum_size = Vector2(1200, 54.3)
+layout_mode = 2
+theme = ExtResource("2_agd0y")
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "[center]Question[/center]"
+fit_content = true
+scroll_active = false
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/PanelContainer/VBoxContainer/QuestionContainer/TitleContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 230
+theme_override_constants/margin_top = -5
+theme_override_constants/margin_right = 230
+theme_override_constants/margin_bottom = 30
+
+[node name="QuestionPanel" type="PanelContainer" parent="Control/MarginContainer/PanelContainer/VBoxContainer/QuestionContainer/TitleContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("2_agd0y")
+theme_type_variation = &"PanelText"
+
+[node name="QuestionText" type="RichTextLabel" parent="Control/MarginContainer/PanelContainer/VBoxContainer/QuestionContainer/TitleContainer/VBoxContainer/MarginContainer/QuestionPanel"]
+layout_mode = 2
+theme = ExtResource("2_agd0y")
+theme_type_variation = &"QuestionText"
+bbcode_enabled = true
+text = "[center]C'est la question:)"
+fit_content = true
+
+[node name="TabContainer" type="TabContainer" parent="Control/MarginContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_fp6e3")
+current_tab = 0
+clip_tabs = false
+tabs_visible = false
+
+[node name="Input" type="MarginContainer" parent="Control/MarginContainer/PanelContainer/VBoxContainer/TabContainer"]
+clip_contents = true
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="InputPanel" type="PanelContainer" parent="Control/MarginContainer/PanelContainer/VBoxContainer/TabContainer/Input"]
+custom_minimum_size = Vector2(0, 450)
+layout_mode = 2
+theme = ExtResource("2_agd0y")
+theme_type_variation = &"TitlePanel"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/PanelContainer/VBoxContainer/TabContainer/Input/InputPanel"]
+layout_mode = 2
+
+[node name="Title" type="MarginContainer" parent="Control/MarginContainer/PanelContainer/VBoxContainer/TabContainer/Input/InputPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 90.945)
+layout_mode = 2
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 0
+
+[node name="TitleAnswer" type="RichTextLabel" parent="Control/MarginContainer/PanelContainer/VBoxContainer/TabContainer/Input/InputPanel/VBoxContainer/Title"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "[center]Your Answer :[/center]"
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/PanelContainer/VBoxContainer/TabContainer/Input/InputPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
+
+[node name="PanelContainer" type="PanelContainer" parent="Control/MarginContainer/PanelContainer/VBoxContainer/TabContainer/Input/InputPanel/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("2_agd0y")
+theme_type_variation = &"PanelText"
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/PanelContainer/VBoxContainer/TabContainer/Input/InputPanel/VBoxContainer/MarginContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 95
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/MarginContainer/PanelContainer/VBoxContainer/TabContainer/Input/InputPanel/VBoxContainer/MarginContainer/PanelContainer/MarginContainer"]
+modulate = Color(1, 0.596078, 0, 1)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 65
+bbcode_enabled = true
+text = "[center]"
+
+[node name="Blank" type="MarginContainer" parent="Control/MarginContainer/PanelContainer/VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+theme = ExtResource("2_agd0y")
+metadata/_tab_index = 1
+
+[node name="BlankPanel" type="PanelContainer" parent="Control/MarginContainer/PanelContainer/VBoxContainer/TabContainer/Blank"]
+custom_minimum_size = Vector2(0, 450)
+layout_mode = 2
+theme = ExtResource("2_agd0y")
+theme_type_variation = &"TitlePanel"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/PanelContainer/VBoxContainer/TabContainer/Blank/BlankPanel"]
+layout_mode = 2
+theme = ExtResource("2_agd0y")
+
+[node name="Title" type="MarginContainer" parent="Control/MarginContainer/PanelContainer/VBoxContainer/TabContainer/Blank/BlankPanel/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_agd0y")
+theme_override_constants/margin_top = 20
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/MarginContainer/PanelContainer/VBoxContainer/TabContainer/Blank/BlankPanel/VBoxContainer/Title"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "[center]Title"
+fit_content = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="Control/MarginContainer/PanelContainer/VBoxContainer/TabContainer/Blank/BlankPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+theme = ExtResource("2_agd0y")
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 50
+
+[node name="QuestionPanel" type="PanelContainer" parent="Control/MarginContainer/PanelContainer/VBoxContainer/TabContainer/Blank/BlankPanel/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme = ExtResource("2_agd0y")
+theme_type_variation = &"PanelText"
+
+[node name="BlankText" type="RichTextLabel" parent="Control/MarginContainer/PanelContainer/VBoxContainer/TabContainer/Blank/BlankPanel/VBoxContainer/MarginContainer2/QuestionPanel"]
+layout_mode = 2
+theme = ExtResource("2_agd0y")
+theme_type_variation = &"QuestionText"
+bbcode_enabled = true
+text = "[center]C'est la question:)"
+fit_content = true
+
+[node name="InputCatcher" parent="." node_paths=PackedStringArray("manager") instance=ExtResource("5_5rj8n")]
+manager = NodePath("..")
+
+[node name="questions_data" parent="." node_paths=PackedStringArray("manager") instance=ExtResource("6_thnfd")]
+manager = NodePath("..")
+mode = 0
+
+[node name="QuestionTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[node name="CoolDownTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="OptionButton" type="Button" parent="."]
+visible = false
+offset_left = 832.0
+offset_top = -524.0
+offset_right = 1440.0
+offset_bottom = 84.0
+scale = Vector2(0.08, 0.08)
+icon = ExtResource("7_1gq21")
+flat = true
+
+[node name="TimerProgress" type="ProgressBar" parent="."]
+modulate = Color(1, 0.596078, 0, 1)
+custom_minimum_size = Vector2(1600, 0)
+offset_left = -902.0
+offset_top = 498.0
+offset_right = 898.0
+offset_bottom = 525.0
+theme = ExtResource("2_agd0y")
+value = 100.0
+show_percentage = false
+
+[node name="PauseButton" type="Button" parent="."]
+offset_left = 878.0
+offset_top = 430.0
+offset_right = 1334.0
+offset_bottom = 950.0
+scale = Vector2(0.09, 0.09)
+toggle_mode = true
+icon = ExtResource("8_2q6or")
+flat = true
+
+[node name="Sliders" type="VBoxContainer" parent="."]
+offset_left = -934.0
+offset_top = -322.0
+offset_right = -854.0
+offset_bottom = 178.0
+
+[node name="Sliders" type="HBoxContainer" parent="Sliders"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="QuestionSlider" type="VSlider" parent="Sliders/Sliders"]
+layout_mode = 2
+theme = ExtResource("2_agd0y")
+min_value = 1.0
+max_value = 30.0
+value = 10.0
+rounded = true
+
+[node name="CooldownSlider" type="VSlider" parent="Sliders/Sliders"]
+custom_minimum_size = Vector2(0, 500)
+layout_mode = 2
+theme = ExtResource("2_agd0y")
+min_value = 1.0
+max_value = 30.0
+value = 5.0
+
+[node name="Textboxes" type="VBoxContainer" parent="Sliders"]
+layout_mode = 2
+
+[node name="Names" type="Label" parent="Sliders/Textboxes"]
+layout_mode = 2
+theme = ExtResource("2_agd0y")
+text = "Q   CD"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Sliders/Textboxes"]
+layout_mode = 2
+theme_override_constants/separation = 13
+
+[node name="QuestionSliderLabel" type="Label" parent="Sliders/Textboxes/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_agd0y")
+text = "10s"
+
+[node name="CDSliderLabel" type="Label" parent="Sliders/Textboxes/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_agd0y")
+text = "10s"
+
+[connection signal="timeout" from="QuestionTimer" to="." method="_on_question_timer_timeout"]
+[connection signal="timeout" from="CoolDownTimer" to="." method="_on_cool_down_timer_timeout"]
+[connection signal="toggled" from="PauseButton" to="." method="_on_pause_button_toggled"]
+[connection signal="drag_ended" from="Sliders/Sliders/QuestionSlider" to="." method="_on_question_slider_drag_ended"]
+[connection signal="drag_ended" from="Sliders/Sliders/CooldownSlider" to="." method="_on_cooldown_slider_drag_ended"]

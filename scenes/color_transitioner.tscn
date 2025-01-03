@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://q1xtnpxi1kcm"]
+
+[ext_resource type="Script" path="res://scenes/color_transitioner.gd" id="1_yf4gc"]
+
+[node name="ColorTransitioner" type="Node2D"]
+script = ExtResource("1_yf4gc")

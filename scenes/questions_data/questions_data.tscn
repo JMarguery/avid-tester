@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://sp06jjhllquc"]
+
+[ext_resource type="Script" path="res://scenes/questions_data/questions_data.gd" id="1_smc4x"]
+
+[node name="questions_data" type="Node2D"]
+script = ExtResource("1_smc4x")

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://duk6ma7hk7tip"]
+
+[ext_resource type="Script" path="res://scenes/Key/key.gd" id="1_f0eh4"]
+
+[node name="Key" type="Button"]
+custom_minimum_size = Vector2(50, 50)
+offset_left = 1.0
+offset_right = 51.0
+offset_bottom = 50.0
+script = ExtResource("1_f0eh4")

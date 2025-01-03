@@ -1,0 +1,12 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://dwrae5nqvq6no"]
+
+[ext_resource type="FontFile" uid="uid://hkb7s2yuyv4f" path="res://art/FONTS/Ac437_IBM_Conv.ttf" id="1_kebju"]
+
+[resource]
+line_spacing = 6.0
+font = ExtResource("1_kebju")
+font_size = 13
+font_color = Color(0.898039, 0.898039, 0.898039, 1)
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 0.592157)
