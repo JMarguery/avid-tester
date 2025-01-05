@@ -352,9 +352,17 @@ offset_right = -803.0
 offset_bottom = 490.0
 text = "Trigger win"
 
+[node name="ModeButton" type="Button" parent="."]
+offset_left = -791.0
+offset_top = 461.0
+offset_right = -783.0
+offset_bottom = 469.0
+text = "MODE : SHUFFLE"
+
 [connection signal="timeout" from="QuestionTimer" to="." method="_on_question_timer_timeout"]
 [connection signal="timeout" from="CoolDownTimer" to="." method="_on_cool_down_timer_timeout"]
 [connection signal="toggled" from="PauseButton" to="." method="_on_pause_button_toggled"]
 [connection signal="drag_ended" from="Sliders/Sliders/QuestionSlider" to="." method="_on_question_slider_drag_ended"]
 [connection signal="drag_ended" from="Sliders/Sliders/CooldownSlider" to="." method="_on_cooldown_slider_drag_ended"]
 [connection signal="button_up" from="WinTrigger" to="." method="_on_win_trigger_button_up"]
+[connection signal="button_down" from="ModeButton" to="." method="_on_mode_button_button_down"]

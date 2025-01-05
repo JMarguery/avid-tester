@@ -41,6 +41,8 @@ var pressedKeys:Array=[]
 
 @export var themePanel:Theme
 
+@export var gameMode:Modes=Modes.SHUFFLE
+
 var charAppearTic:float=0
 var currentQuestion:Dictionary
 var currentAnswers:Array=[]
@@ -160,9 +162,9 @@ func recv_input(input:Dictionary) -> void:
 			if pressedKeys!=[]:
 				strInput=strInput.left(-3)
 			inputText.text = strInput
-			for answer in currentAnswers:
-				if answer == pressedKeys:
-					win_routine()
+		for answer in currentAnswers:
+			if answer == pressedKeys:
+				win_routine()
 
 func recv_down_input(input:Dictionary) -> void:
 	pressedKeys = input.keys()
@@ -191,7 +193,11 @@ func win_routine() -> void:
 		titleAnswer.text = "[center]Correct answer :"
 		titleAnswer.modulate = Colors["GREEN"]
 	elif questionMode == Modes.BLANK:
-		pass
+		var s:String = currentQuestion["clue"]
+		s = s.replace("%KEY%","[color=5bdc70]{}[/color]")
+		s = s.format(currentAnswers[0],"{}")
+		blankText.text = "[center][color=0093fe]"+s
+		
 	
 func lose_routine() -> void:
 	inLoseRoutine=true
@@ -270,3 +276,17 @@ func _on_cooldown_slider_drag_ended(value_changed: bool) -> void:
 
 func _on_win_trigger_button_up() -> void:
 	win_routine()
+
+
+func _on_mode_button_button_down() -> void:
+	match gameMode:
+		Modes.SHUFFLE:
+			gameMode=Modes.CLASSIC
+			$ModeButton.text = "MODE : CLASSIC"
+		Modes.CLASSIC:
+			gameMode=Modes.BLANK
+			$ModeButton.text = "MODE : BLANK"
+		Modes.BLANK:
+			gameMode=Modes.SHUFFLE
+			$ModeButton.text = "MODE : SHUFFLE"
+	questionData.set_mode(gameMode)
