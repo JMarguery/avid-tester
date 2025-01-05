@@ -797,7 +797,8 @@ enum Modes {CLASSIC,BLANK,SHUFFLE}
 @export var mode:Modes = Modes.SHUFFLE
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	set_mode()
+	pass
+	#set_mode()
 	
 
 func set_mode(new_mode:int=mode) -> void:
@@ -817,6 +818,7 @@ func get_question() -> Dictionary:
 			question = guessArray.pick_random().pick_random()
 		_:
 			question = guessArray.pick_random()
+			#print(question)
 	return question
 
 

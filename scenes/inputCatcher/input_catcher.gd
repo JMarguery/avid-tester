@@ -33,7 +33,7 @@ func _input(event):
 				loc = "Right"
 		var label = OS.get_keycode_string(event.key_label)+loc
 		#print("key label : ",label)
-		if event.is_pressed():
+		if event.is_pressed() and not event.is_echo():
 			pressedKeys[label]=code
 			manager.recv_input(pressedKeys)
 		elif event.is_released():

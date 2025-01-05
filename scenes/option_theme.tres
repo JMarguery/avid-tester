@@ -1,0 +1,97 @@
+[gd_resource type="Theme" load_steps=12 format=3 uid="uid://bys0w23vqb2e5"]
+
+[ext_resource type="FontFile" uid="uid://hkb7s2yuyv4f" path="res://art/FONTS/Ac437_IBM_Conv.ttf" id="1_lnrat"]
+[ext_resource type="FontFile" uid="uid://d1yhe4ljfhta6" path="res://art/FONTS/Ac437_Mindset.ttf" id="2_c4vvw"]
+[ext_resource type="Texture2D" uid="uid://r5dpfgjoanh6" path="res://art/empty.png" id="3_75vmy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qds6j"]
+bg_color = Color(0.180392, 0.227451, 0.235294, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.172549, 0.431373, 0.905882, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+corner_detail = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_msfa3"]
+bg_color = Color(0.180392, 0.227451, 0.235294, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_size = 2
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a6tov"]
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8sq06"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8yrba"]
+bg_color = Color(0.105882, 0.14902, 0.160784, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hof5k"]
+bg_color = Color(1, 0.596078, 0, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ovgif"]
+bg_color = Color(1, 1, 1, 1)
+draw_center = false
+border_width_left = 15
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.61, 0.44164, 0.1708, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pbq0r"]
+bg_color = Color(0.105882, 0.14902, 0.160784, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[resource]
+Label/fonts/font = ExtResource("1_lnrat")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_qds6j")
+PanelText/base_type = &"PanelContainer"
+PanelText/styles/panel = SubResource("StyleBoxFlat_msfa3")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_a6tov")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_8sq06")
+QuestionText/base_type = &"RichTextLabel"
+QuestionText/colors/default_color = Color(0.945098, 0.815686, 0.490196, 1)
+QuestionText/colors/font_shadow_color = Color(0, 0, 0, 1)
+QuestionText/constants/shadow_offset_x = 2
+QuestionText/constants/shadow_offset_y = 1
+QuestionText/constants/shadow_outline_size = 1
+RichTextLabel/font_sizes/normal_font_size = 37
+RichTextLabel/fonts/normal_font = ExtResource("2_c4vvw")
+TitlePanel/base_type = &"PanelContainer"
+TitlePanel/styles/panel = SubResource("StyleBoxFlat_8yrba")
+VSlider/icons/grabber = ExtResource("3_75vmy")
+VSlider/icons/grabber_disabled = null
+VSlider/icons/grabber_highlight = ExtResource("3_75vmy")
+VSlider/icons/tick = null
+VSlider/styles/grabber_area = SubResource("StyleBoxFlat_hof5k")
+VSlider/styles/slider = SubResource("StyleBoxFlat_ovgif")
+bgPanel/base_type = &"PanelContainer"
+bgPanel/styles/panel = SubResource("StyleBoxFlat_pbq0r")

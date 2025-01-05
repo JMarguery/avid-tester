@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://bl7mnfr0b8iek"]
+
+[ext_resource type="Theme" uid="uid://bys0w23vqb2e5" path="res://scenes/option_theme.tres" id="1_vxmsq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_l8s8a"]
+font_size = 40
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_vxmsq")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(960, 810)
+layout_mode = 0
+offset_left = 480.0
+offset_top = 135.0
+offset_right = 1440.0
+offset_bottom = 945.0
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+layout_mode = 2
+theme = ExtResource("1_vxmsq")
+theme_type_variation = &"bgPanel"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 10
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+text = "Options"
+label_settings = SubResource("LabelSettings_l8s8a")
